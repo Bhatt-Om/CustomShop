@@ -22,9 +22,9 @@ class Api::V1::GiftsController < ApplicationController
   def create
     gift = Gift.new(gifts_params)
     if gift.save
-      render json: { message: "Successfully Created Gift", gift: gift, success: :true }, status: :ok
+      render json: { message: "Successfully Created Gift", gift: gift, success: true }, status: :ok
     else
-      render json: { message: gift.errors.full_messages.join(" ").to_s, success: :false }, status: :not_found
+      render json: { message: gift.errors.full_messages.join(" ").to_s, success: false }, status: :not_found
     end
   end
 
