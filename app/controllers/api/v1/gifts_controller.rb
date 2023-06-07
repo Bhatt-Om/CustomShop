@@ -31,7 +31,7 @@ class Api::V1::GiftsController < ApplicationController
   def destroy
     gift = Gift.find_by(id: params[:id])
     gift.destroy
-    rander json: { message: "Successfully Deleted Gift", success: true }, status: :ok
+    render json: { message: "Successfully Deleted Gift", success: true }, status: :ok
   end
   private
 
