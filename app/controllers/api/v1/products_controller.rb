@@ -52,6 +52,14 @@ class Api::V1::ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    product = Product.find_by(id: params[:id])
+    product.destroy
+    render json: {
+      messages: 'Product was successfully destroyed',
+      success: true
+    },status: :ok
+  end
   # def upload_images
   #   product = Product.find_by_id(params[:id])
   #   render json: { message: 'Images uploaded successfully' }
